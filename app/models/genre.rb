@@ -9,3 +9,4 @@ hoge
 commit後
 restore後にcommitしたもの
 hoge
+git add .
