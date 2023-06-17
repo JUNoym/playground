@@ -7,3 +7,4 @@ test2
 test3
 hoge
 commit後
+hoge
