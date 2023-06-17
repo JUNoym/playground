@@ -1,0 +1,414 @@
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGenres (20230615184948)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "ancestry" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_genres_on_name" ON "genres" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230615184948"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-06-15 18:52:03.954823"], ["updated_at", "2023-06-15 18:52:03.954823"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (3.7ms)[0m  [1m[32mINSERT INTO "genres" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-06-15 18:53:24.855684"], ["updated_at", "2023-06-15 18:53:24.855684"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (1.8ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "hoge"], ["created_at", "2023-06-15 18:53:39.655585"], ["updated_at", "2023-06-15 18:53:39.655585"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGenre Destroy (3.7ms)[0m  [1m[31mDELETE FROM "genres" WHERE "genres"."id" = ?[0m  [["id", 1]]
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (1.2ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ドリンク・お酒"], ["created_at", "2023-06-15 19:00:30.707716"], ["updated_at", "2023-06-15 19:00:30.707716"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "水・ソフトドリンク"], ["ancestry", "2"], ["created_at", "2023-06-15 19:00:30.715390"], ["updated_at", "2023-06-15 19:00:30.715390"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ビール・洋酒"], ["ancestry", "2"], ["created_at", "2023-06-15 19:00:30.719467"], ["updated_at", "2023-06-15 19:00:30.719467"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "日本酒・焼酎"], ["ancestry", "2"], ["created_at", "2023-06-15 19:00:30.723853"], ["updated_at", "2023-06-15 19:00:30.723853"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ワイン"], ["ancestry", "2"], ["created_at", "2023-06-15 19:00:30.728021"], ["updated_at", "2023-06-15 19:00:30.728021"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "水・ミネラルウォーター"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:00:30.732113"], ["updated_at", "2023-06-15 19:00:30.732113"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.6ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "コーヒー"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:00:30.742531"], ["updated_at", "2023-06-15 19:00:30.742531"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "野菜・果実飲料"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:00:30.747521"], ["updated_at", "2023-06-15 19:00:30.747521"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "お茶・紅茶"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:00:30.750956"], ["updated_at", "2023-06-15 19:00:30.750956"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "炭酸飲料"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:00:30.755867"], ["updated_at", "2023-06-15 19:00:30.755867"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "スポーツドリンク"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:00:30.762829"], ["updated_at", "2023-06-15 19:00:30.762829"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ビール・発泡酒"], ["ancestry", "2/4"], ["created_at", "2023-06-15 19:00:30.767537"], ["updated_at", "2023-06-15 19:00:30.767537"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ウイスキー"], ["ancestry", "2/4"], ["created_at", "2023-06-15 19:00:30.771749"], ["updated_at", "2023-06-15 19:00:30.771749"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.7ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "チューハイ・ハイボール・カクテル"], ["ancestry", "2/4"], ["created_at", "2023-06-15 19:00:30.776452"], ["updated_at", "2023-06-15 19:00:30.776452"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "焼酎"], ["ancestry", "2/5"], ["created_at", "2023-06-15 19:00:30.781513"], ["updated_at", "2023-06-15 19:00:30.781513"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "日本酒"], ["ancestry", "2/5"], ["created_at", "2023-06-15 19:00:30.785582"], ["updated_at", "2023-06-15 19:00:30.785582"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "梅酒"], ["ancestry", "2/5"], ["created_at", "2023-06-15 19:00:30.789108"], ["updated_at", "2023-06-15 19:00:30.789108"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.6ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "赤ワイン"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:00:30.793421"], ["updated_at", "2023-06-15 19:00:30.793421"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "白ワイン"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:00:30.799147"], ["updated_at", "2023-06-15 19:00:30.799147"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "飲み比べセット"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:00:30.803010"], ["updated_at", "2023-06-15 19:00:30.803010"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "スパークリングワイン・シャンパン"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:00:30.807047"], ["updated_at", "2023-06-15 19:00:30.807047"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (1.4ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ドリンク・お酒"], ["created_at", "2023-06-15 19:03:14.113322"], ["updated_at", "2023-06-15 19:03:14.113322"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAncestryModels (20230615190654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ancestry_models" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "ancestry" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230615190654"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.5ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ドリンク・お酒"], ["created_at", "2023-06-15 19:08:15.729836"], ["updated_at", "2023-06-15 19:08:15.729836"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.5ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ドリンク・お酒"], ["created_at", "2023-06-15 19:09:19.435963"], ["updated_at", "2023-06-15 19:09:19.435963"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "水・ソフトドリンク"], ["ancestry", "2"], ["created_at", "2023-06-15 19:09:19.440789"], ["updated_at", "2023-06-15 19:09:19.440789"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.4ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ビール・洋酒"], ["ancestry", "2"], ["created_at", "2023-06-15 19:09:19.445589"], ["updated_at", "2023-06-15 19:09:19.445589"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "日本酒・焼酎"], ["ancestry", "2"], ["created_at", "2023-06-15 19:09:19.450554"], ["updated_at", "2023-06-15 19:09:19.450554"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ワイン"], ["ancestry", "2"], ["created_at", "2023-06-15 19:09:19.454185"], ["updated_at", "2023-06-15 19:09:19.454185"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.6ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "水・ミネラルウォーター"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:09:19.458709"], ["updated_at", "2023-06-15 19:09:19.458709"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "コーヒー"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:09:19.468579"], ["updated_at", "2023-06-15 19:09:19.468579"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "野菜・果実飲料"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:09:19.471876"], ["updated_at", "2023-06-15 19:09:19.471876"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.4ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "お茶・紅茶"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:09:19.475286"], ["updated_at", "2023-06-15 19:09:19.475286"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.4ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "炭酸飲料"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:09:19.479271"], ["updated_at", "2023-06-15 19:09:19.479271"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "スポーツドリンク"], ["ancestry", "2/3"], ["created_at", "2023-06-15 19:09:19.483661"], ["updated_at", "2023-06-15 19:09:19.483661"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ビール・発泡酒"], ["ancestry", "2/4"], ["created_at", "2023-06-15 19:09:19.487093"], ["updated_at", "2023-06-15 19:09:19.487093"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ウイスキー"], ["ancestry", "2/4"], ["created_at", "2023-06-15 19:09:19.490491"], ["updated_at", "2023-06-15 19:09:19.490491"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "チューハイ・ハイボール・カクテル"], ["ancestry", "2/4"], ["created_at", "2023-06-15 19:09:19.493653"], ["updated_at", "2023-06-15 19:09:19.493653"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "焼酎"], ["ancestry", "2/5"], ["created_at", "2023-06-15 19:09:19.496944"], ["updated_at", "2023-06-15 19:09:19.496944"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "日本酒"], ["ancestry", "2/5"], ["created_at", "2023-06-15 19:09:19.500302"], ["updated_at", "2023-06-15 19:09:19.500302"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "梅酒"], ["ancestry", "2/5"], ["created_at", "2023-06-15 19:09:19.503623"], ["updated_at", "2023-06-15 19:09:19.503623"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "赤ワイン"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:09:19.507477"], ["updated_at", "2023-06-15 19:09:19.507477"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "白ワイン"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:09:19.511982"], ["updated_at", "2023-06-15 19:09:19.511982"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "飲み比べセット"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:09:19.515465"], ["updated_at", "2023-06-15 19:09:19.515465"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "スパークリングワイン・シャンパン"], ["ancestry", "2/6"], ["created_at", "2023-06-15 19:09:19.519275"], ["updated_at", "2023-06-15 19:09:19.519275"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Load (0.2ms)[0m  [1m[34mSELECT "ancestry_models".* FROM "ancestry_models" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAncestryModel Load (0.2ms)[0m  [1m[34mSELECT "ancestry_models".* FROM "ancestry_models" WHERE "ancestry_models"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2023-06-16 04:21:54 +0900
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/railties-6.0.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/railties-6.0.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.8ms | Allocations: 406)
+Completed 200 OK in 33ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 3729)
+
+
+Started GET "/" for ::1 at 2023-06-16 04:22:31 +0900
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/railties-6.0.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/railties-6.0.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.1ms | Allocations: 298)
+Completed 200 OK in 16ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 2635)
+
+
+  [1m[35m (9.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (2.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ドリンク・お酒"], ["created_at", "2023-06-17 14:23:13.535653"], ["updated_at", "2023-06-17 14:23:13.535653"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "水・ソフトドリンク"], ["ancestry", "23"], ["created_at", "2023-06-17 14:23:13.542491"], ["updated_at", "2023-06-17 14:23:13.542491"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ビール・洋酒"], ["ancestry", "23"], ["created_at", "2023-06-17 14:23:13.546776"], ["updated_at", "2023-06-17 14:23:13.546776"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "日本酒・焼酎"], ["ancestry", "23"], ["created_at", "2023-06-17 14:23:13.550444"], ["updated_at", "2023-06-17 14:23:13.550444"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ワイン"], ["ancestry", "23"], ["created_at", "2023-06-17 14:23:13.555082"], ["updated_at", "2023-06-17 14:23:13.555082"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "水・ミネラルウォーター"], ["ancestry", "23/24"], ["created_at", "2023-06-17 14:23:13.559378"], ["updated_at", "2023-06-17 14:23:13.559378"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "コーヒー"], ["ancestry", "23/24"], ["created_at", "2023-06-17 14:23:13.563303"], ["updated_at", "2023-06-17 14:23:13.563303"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "野菜・果実飲料"], ["ancestry", "23/24"], ["created_at", "2023-06-17 14:23:13.566807"], ["updated_at", "2023-06-17 14:23:13.566807"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.4ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "お茶・紅茶"], ["ancestry", "23/24"], ["created_at", "2023-06-17 14:23:13.577381"], ["updated_at", "2023-06-17 14:23:13.577381"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "炭酸飲料"], ["ancestry", "23/24"], ["created_at", "2023-06-17 14:23:13.581360"], ["updated_at", "2023-06-17 14:23:13.581360"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.4ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "スポーツドリンク"], ["ancestry", "23/24"], ["created_at", "2023-06-17 14:23:13.584650"], ["updated_at", "2023-06-17 14:23:13.584650"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.5ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ビール・発泡酒"], ["ancestry", "23/25"], ["created_at", "2023-06-17 14:23:13.589039"], ["updated_at", "2023-06-17 14:23:13.589039"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.4ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ウイスキー"], ["ancestry", "23/25"], ["created_at", "2023-06-17 14:23:13.593840"], ["updated_at", "2023-06-17 14:23:13.593840"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "チューハイ・ハイボール・カクテル"], ["ancestry", "23/25"], ["created_at", "2023-06-17 14:23:13.597745"], ["updated_at", "2023-06-17 14:23:13.597745"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "焼酎"], ["ancestry", "23/26"], ["created_at", "2023-06-17 14:23:13.601107"], ["updated_at", "2023-06-17 14:23:13.601107"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "日本酒"], ["ancestry", "23/26"], ["created_at", "2023-06-17 14:23:13.604324"], ["updated_at", "2023-06-17 14:23:13.604324"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "梅酒"], ["ancestry", "23/26"], ["created_at", "2023-06-17 14:23:13.607801"], ["updated_at", "2023-06-17 14:23:13.607801"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "赤ワイン"], ["ancestry", "23/27"], ["created_at", "2023-06-17 14:23:13.611209"], ["updated_at", "2023-06-17 14:23:13.611209"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "白ワイン"], ["ancestry", "23/27"], ["created_at", "2023-06-17 14:23:13.614062"], ["updated_at", "2023-06-17 14:23:13.614062"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "飲み比べセット"], ["ancestry", "23/27"], ["created_at", "2023-06-17 14:23:13.617061"], ["updated_at", "2023-06-17 14:23:13.617061"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "スパークリングワイン・シャンパン"], ["ancestry", "23/27"], ["created_at", "2023-06-17 14:23:13.619794"], ["updated_at", "2023-06-17 14:23:13.619794"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAncestryModel Create (1.5ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-06-17 14:24:12.420464"], ["updated_at", "2023-06-17 14:24:12.420464"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAncestryModel Create (1.0ms)[0m  [1m[32mINSERT INTO "ancestry_models" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "テスト"], ["created_at", "2023-06-17 14:24:44.604905"], ["updated_at", "2023-06-17 14:24:44.604905"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAncestryModel Load (0.1ms)[0m  [1m[34mSELECT "ancestry_models".* FROM "ancestry_models" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE `["database_name"]` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `playground` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (66.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (34.3ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT GET_LOCK('7582607192674668840', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateGenres (20230615184948)
+  [1m[35m (27.3ms)[0m  [1m[35mCREATE TABLE `genres` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `ancestry` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, UNIQUE INDEX `index_genres_on_name`  (`name`))[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230615184948')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAncestryModels (20230615190654)
+  [1m[35m (22.7ms)[0m  [1m[35mCREATE TABLE `ancestry_models` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `ancestry` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230615190654')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2023-06-17 14:42:51.891176', '2023-06-17 14:42:51.891176')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('7582607192674668840')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (1.0ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `created_at`, `updated_at`) VALUES ('ドリンク・お酒', '2023-06-17 14:47:49.354841', '2023-06-17 14:47:49.354841')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (1.3ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('水・ソフトドリンク', '1', '2023-06-17 14:47:49.361450', '2023-06-17 14:47:49.361450')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('ビール・洋酒', '1', '2023-06-17 14:47:49.366396', '2023-06-17 14:47:49.366396')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('日本酒・焼酎', '1', '2023-06-17 14:47:49.369453', '2023-06-17 14:47:49.369453')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('ワイン', '1', '2023-06-17 14:47:49.372379', '2023-06-17 14:47:49.372379')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.5ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('水・ミネラルウォーター', '1/2', '2023-06-17 14:47:49.375596', '2023-06-17 14:47:49.375596')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('コーヒー', '1/2', '2023-06-17 14:47:49.379395', '2023-06-17 14:47:49.379395')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('野菜・果実飲料', '1/2', '2023-06-17 14:47:49.383246', '2023-06-17 14:47:49.383246')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.1ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('お茶・紅茶', '1/2', '2023-06-17 14:47:49.386229', '2023-06-17 14:47:49.386229')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.1ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('炭酸飲料', '1/2', '2023-06-17 14:47:49.389083', '2023-06-17 14:47:49.389083')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (1.1ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('スポーツドリンク', '1/2', '2023-06-17 14:47:49.392134', '2023-06-17 14:47:49.392134')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('ビール・発泡酒', '1/3', '2023-06-17 14:47:49.396441', '2023-06-17 14:47:49.396441')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('ウイスキー', '1/3', '2023-06-17 14:47:49.400964', '2023-06-17 14:47:49.400964')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('チューハイ・ハイボール・カクテル', '1/3', '2023-06-17 14:47:49.410577', '2023-06-17 14:47:49.410577')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('焼酎', '1/4', '2023-06-17 14:47:49.413677', '2023-06-17 14:47:49.413677')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('日本酒', '1/4', '2023-06-17 14:47:49.416617', '2023-06-17 14:47:49.416617')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.1ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('梅酒', '1/4', '2023-06-17 14:47:49.419573', '2023-06-17 14:47:49.419573')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.3ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('赤ワイン', '1/5', '2023-06-17 14:47:49.422472', '2023-06-17 14:47:49.422472')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('白ワイン', '1/5', '2023-06-17 14:47:49.425729', '2023-06-17 14:47:49.425729')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('飲み比べセット', '1/5', '2023-06-17 14:47:49.428752', '2023-06-17 14:47:49.428752')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (0.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('スパークリングワイン・シャンパン', '1/5', '2023-06-17 14:47:49.432367', '2023-06-17 14:47:49.432367')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT `genres`.* FROM `genres` WHERE `genres`.`id` = 18 LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.3ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 18 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAncestryModel Create (1.8ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('ボルドー', '1/5/18', '2023-06-17 15:49:47.046175', '2023-06-17 15:49:47.046175')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAncestryModel Load (1.4ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` LIMIT 11[0m
+  [1m[36mAncestryModel Load (0.6ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = NULL LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.8ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = 'ボルドー' LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.6ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = NULL LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.9ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE (ボルドー) LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.7ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = 'ボルドー' LIMIT 1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mAncestryModel Load (0.4ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = 'ボルドー' LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.6ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 18 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (1.3ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('ボルドー', '1/5/18', '2023-06-17 16:00:54.097000', '2023-06-17 16:00:54.097000')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAncestryModel Load (1.1ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = '日本酒.' LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.4ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = '日本酒・焼酎' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (1.1ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('鬼殺し', '1/4', '2023-06-17 16:05:55.066217', '2023-06-17 16:05:55.066217')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAncestryModel Destroy (4.5ms)[0m  [1m[31mDELETE FROM `ancestry_models` WHERE `ancestry_models`.`id` = 24[0m
+  [1m[36mAncestryModel Load (1.2ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = '日本酒' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAncestryModel Create (1.2ms)[0m  [1m[32mINSERT INTO `ancestry_models` (`name`, `ancestry`, `created_at`, `updated_at`) VALUES ('鬼殺し', '1/4/16', '2023-06-17 16:08:52.778890', '2023-06-17 16:08:52.778890')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAncestryModel Load (0.7ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 4 LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.9ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 16 LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.0ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 1 LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.7ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` IN (1, 4, 16, 25) ORDER BY `ancestry_models`.`ancestry` LIMIT 11[0m
+  [1m[36mAncestryModel Load (1.4ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 1 LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.9ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1' LIMIT 11[0m
+  [1m[36mAncestryModel Load (1.1ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1' LIMIT 11[0m
+  [1m[36mAncestryModel Load (1.9ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1' LIMIT 11[0m
+  [1m[36mAncestryModel Load (1.7ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = 23 LIMIT 1[0m
+  [1m[36mAncestryModel Load (0.9ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1/5/18' LIMIT 11[0m
+  [1m[36mAncestryModel Load (1.2ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = '焼酎' LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.7ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1/4' LIMIT 11[0m
+  [1m[36mAncestryModel Load (1.2ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`id` = NULL LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.4ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`name` = '水・ミネラルウォーター' LIMIT 1[0m
+  [1m[36mAncestryModel Load (1.6ms)[0m  [1m[34mSELECT `ancestry_models`.* FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1/2' LIMIT 11[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `ancestry_models`.`id` FROM `ancestry_models` WHERE `ancestry_models`.`ancestry` = '1/2'[0m
