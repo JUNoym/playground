@@ -7,3 +7,6 @@ test2
 test3
 hoge
 commit後
+restore後にcommitしたもの
+hoge
+git add .
