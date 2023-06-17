@@ -8,3 +8,4 @@ test3
 hoge
 commit後
 restore後にcommitしたもの
+hoge
