@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_06_173214) do
+ActiveRecord::Schema.define(version: 2023_07_06_180310) do
 
   create_table "ancestry_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2023_07_06_173214) do
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.string "description", default: "食べ物の感想を書いてください"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
