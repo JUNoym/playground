@@ -23,3 +23,11 @@ end
 ['赤ワイン', '白ワイン', '飲み比べセット', 'スパークリングワイン・シャンパン'].each do |name|
   wine.children.create(name: name)
 end
+
+Food.create(name: 'ハイボール', description: 'ハイボールの感想を書いてください')
+Food.create(name: 'ワイン', description: 'ワインの感想を書いてください')
+Food.create(name: '日本酒', description: '日本酒の感想を書いてください')
+
+100.times do |n|
+  Food.create(name: "食べ物#{n}", description: "食べ物#{n}の感想を書いてください")
+end
