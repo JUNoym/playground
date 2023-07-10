@@ -40,3 +40,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# development.logをgit管理対象外にする
+/log/development.log
