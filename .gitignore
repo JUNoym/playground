@@ -40,3 +40,5 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+/vendor/rails-6.0.6.1
+
