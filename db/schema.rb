@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_12_134137) do
+ActiveRecord::Schema.define(version: 2023_07_12_142216) do
 
   create_table "ancestry_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "penname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,6 +32,8 @@ ActiveRecord::Schema.define(version: 2023_07_12_134137) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "publisher_id", null: false
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,6 +56,13 @@ ActiveRecord::Schema.define(version: 2023_07_12_134137) do
     t.string "part_number"
   end
 
+  create_table "publishers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -55,4 +71,5 @@ ActiveRecord::Schema.define(version: 2023_07_12_134137) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "books", "publishers"
 end
