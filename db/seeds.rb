@@ -31,3 +31,7 @@ Food.create(name: '日本酒', description: '日本酒の感想を書いてく�
 100.times do |n|
   Food.create(name: "食べ物#{n}", description: "食べ物#{n}の感想を書いてください")
 end
+
+10.times do |i|
+  Book.create(name: "本#{i}", published_on: Time.parse("20230712").ago(i.months), price: i * 1000)
+end
