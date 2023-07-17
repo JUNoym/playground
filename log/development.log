@@ -4326,3 +4326,530 @@ Migrating to CreateUsers (20230717190250)
   [1m[36mPublisher Load (0.3ms)[0m  [1m[34mSELECT `publishers`.* FROM `publishers` WHERE `publishers`.`id` = 1 LIMIT 1[0m
   [1m[36mBook Update (0.4ms)[0m  [1m[33mUPDATE `books` SET `books`.`name` = '変更後のbook', `books`.`price` = 123123, `books`.`updated_at` = '2023-07-17 19:31:24.952040' WHERE `books`.`id` = 11[0m
   [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/books/2.json" for ::1 at 2023-07-18 04:42:57 +0900
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms | Allocations: 8361)
+
+
+  
+ActionView::MissingTemplate (Missing template books/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/junya.oyama/workspace/playground/practice/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actiontext-6.0.6.1/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.6.1/app/views"
+):
+  
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2.json" for ::1 at 2023-07-18 04:44:16 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.8ms | Allocations: 2132)
+
+
+  
+ActionView::MissingTemplate (Missing template books/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/junya.oyama/workspace/playground/practice/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actiontext-6.0.6.1/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.6.1/app/views"
+):
+  
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2.json" for ::1 at 2023-07-18 04:44:17 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms | Allocations: 1389)
+
+
+  
+ActionView::MissingTemplate (Missing template books/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/junya.oyama/workspace/playground/practice/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actiontext-6.0.6.1/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.6.1/app/views"
+):
+  
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2.json" for ::1 at 2023-07-18 04:44:30 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.6ms | Allocations: 2132)
+
+
+  
+ActionView::MissingTemplate (Missing template books/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/junya.oyama/workspace/playground/practice/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actiontext-6.0.6.1/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.6.1/app/views"
+):
+  
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2.json" for ::1 at 2023-07-18 04:44:32 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.1ms | Allocations: 1389)
+
+
+  
+ActionView::MissingTemplate (Missing template books/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/junya.oyama/workspace/playground/practice/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actiontext-6.0.6.1/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.6.1/app/views"
+):
+  
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2.json" for ::1 at 2023-07-18 04:44:32 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.7ms | Allocations: 1389)
+
+
+  
+ActionView::MissingTemplate (Missing template books/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/junya.oyama/workspace/playground/practice/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actiontext-6.0.6.1/app/views"
+  * "/Users/junya.oyama/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.6.1/app/views"
+):
+  
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2" for ::1 at 2023-07-18 04:44:35 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (3.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 73)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/junya.oyama/workspace/playground/practice/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-transform-class-properties.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-methods since the "loose" mode option was set to "true" for @babel/plugin-transform-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-transform-class-properties.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-methods since the "loose" mode option was set to "true" for @babel/plugin-transform-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-transform-class-properties.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-transform-class-properties.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-transform-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-transform-class-properties.
+The "loose" option must be the same for @babel/plugin-transform-class-properties, @babel/plugin-transform-private-methods and @babel/plugin-transform-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-transform-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: 666b4b17c239d77fe3e2
+Version: webpack 4.46.0
+Time: 1989ms
+Built at: 2023/07/18 4:44:41
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-82550c4e3b8b39cde23f.js    120 KiB  application  [emitted] [immutable]  application
+js/application-82550c4e3b8b39cde23f.js.map    133 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-82550c4e3b8b39cde23f.js js/application-82550c4e3b8b39cde23f.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 748 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 5404ms (Views: 5398.3ms | ActiveRecord: 3.7ms | Allocations: 22305)
+
+
+Started GET "/books/2" for ::1 at 2023-07-18 04:46:24 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 19.9ms | Allocations: 3367)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.2ms | Allocations: 5201)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Book:0x00007ff745ac87f0>):
+     5: </head>
+     6: <body>
+     7:   <h1>BookAdmin</h1>
+     8:   <p>Book Title: <%= @book.title %></p>
+     9:   <p>Book Author: <%= @book.author %></p>
+    10:   <p>Book Price: <%= @book.price %></p>
+    11:   <p>Book Subject: <%= @book.subject.name %></p>
+  
+app/views/books/show.html.erb:8
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/books/2" for ::1 at 2023-07-18 04:46:51 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 1.2ms | Allocations: 5662)
+
+
+Started GET "/books/1" for ::1 at 2023-07-18 04:46:55 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.7ms | Allocations: 4621)
+
+
+Started GET "/books/2" for ::1 at 2023-07-18 04:46:57 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 1.2ms | Allocations: 4620)
+
+
+Started GET "/books/6" for ::1 at 2023-07-18 04:47:00 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBook Load (3.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 404 Not Found in 6ms (ActiveRecord: 3.6ms | Allocations: 1253)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=6):
+  
+app/controllers/books_controller.rb:21:in `set_book_params'
+Started GET "/books/5" for ::1 at 2023-07-18 04:47:03 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 404 Not Found in 5ms (ActiveRecord: 1.6ms | Allocations: 1252)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=5):
+  
+app/controllers/books_controller.rb:21:in `set_book_params'
+Started GET "/books/4" for ::1 at 2023-07-18 04:47:07 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+Completed 404 Not Found in 5ms (ActiveRecord: 1.4ms | Allocations: 1252)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=4):
+  
+app/controllers/books_controller.rb:21:in `set_book_params'
+Started GET "/books/3" for ::1 at 2023-07-18 04:47:09 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (7.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:21:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 14.2ms | ActiveRecord: 7.3ms | Allocations: 4627)
+
+
+Started GET "/books/3" for ::1 at 2023-07-18 04:47:32 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:20:in `set_book_params'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 12.8ms | ActiveRecord: 3.2ms | Allocations: 10952)
+
+
+Started GET "/books/3.json" for ::1 at 2023-07-18 05:31:56 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 7367)
+
+
+Started GET "/books/3.json" for ::1 at 2023-07-18 05:32:50 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 1067)
+
+
+Started GET "/books/3.json" for ::1 at 2023-07-18 05:32:51 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 1.6ms | Allocations: 1076)
+
+
+Started GET "/books/3.json" for ::1 at 2023-07-18 05:32:52 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 1079)
+
+
+Started GET "/books/1.json" for ::1 at 2023-07-18 05:32:56 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1080)
+
+
+Started GET "/books/1.json" for ::1 at 2023-07-18 05:33:23 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1091)
+
+
+Started GET "/books/1.json" for ::1 at 2023-07-18 05:33:24 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (3.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 3.6ms | Allocations: 1065)
+
+
+Started GET "/books/1.json" for ::1 at 2023-07-18 05:33:24 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (3.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 3.7ms | Allocations: 1084)
+
+
+Started GET "/books/1.json" for ::1 at 2023-07-18 05:33:25 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 1.6ms | Allocations: 1077)
+
+
+Started GET "/books/1.json" for ::1 at 2023-07-18 05:33:46 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 0.4ms | Allocations: 111)
+Completed 200 OK in 19ms (Views: 2.7ms | ActiveRecord: 3.2ms | Allocations: 8634)
+
+
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:34:13 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 0.2ms | Allocations: 53)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 1.2ms | Allocations: 1219)
+
+
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:36:10 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 1.1ms | Allocations: 1007)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.3ms | Allocations: 3337)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check json.extract! @book, :id, :name, :price
+json.name_with_id "#{@book,id}-#{@book,name}"
+
+):
+1:    json.extract! @book, :id, :name, :price
+2:    json.name_with_id "#{@book,id}-#{@book,name}"
+  
+app/views/books/show.json.jbuilder:2: syntax error, unexpected '}', expecting '='
+app/views/books/show.json.jbuilder:5: syntax error, unexpected `end', expecting '}'
+app/views/books/show.json.jbuilder:2: syntax error, unexpected '}', expecting '='
+app/views/books/show.json.jbuilder:5: syntax error, unexpected `end', expecting '}'
+app/views/books/show.json.jbuilder:2: syntax error, unexpected '}', expecting '='
+app/views/books/show.json.jbuilder:5: syntax error, unexpected `end', expecting '}'
+app/views/books/show.json.jbuilder:2: syntax error, unexpected '}', expecting '='
+app/views/books/show.json.jbuilder:5: syntax error, unexpected `end', expecting '}'
+app/views/books/show.json.jbuilder:2: syntax error, unexpected '}', expecting '='
+app/views/books/show.json.jbuilder:5: syntax error, unexpected `end', expecting '}'
+app/views/books/show.json.jbuilder:2: syntax error, unexpected '}', expecting '='
+app/views/books/show.json.jbuilder:5: syntax error, unexpected `end', expecting '}'
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:36:27 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 0.5ms | Allocations: 126)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.9ms | Allocations: 2487)
+
+
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:37:06 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 0.8ms | Allocations: 126)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.1ms | Allocations: 2474)
+
+
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:37:21 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 0.8ms | Allocations: 127)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 1.0ms | Allocations: 2479)
+
+
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:38:33 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  Rendered books/show.json.jbuilder (Duration: 0.7ms | Allocations: 1017)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.1ms | Allocations: 3361)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check json.extract! @book, :id, :name, :price
+json.something_key "これは任意につけたキー",
+"publisher": {
+  "name": "技術評論社
+}
+
+):
+1:    json.extract! @book, :id, :name, :price
+2:    json.something_key "これは任意につけたキー",
+3:    "publisher": {
+4:      "name": "技術評論社
+5:    }
+  
+app/views/books/show.json.jbuilder:7: syntax error, unexpected local variable or method, expecting '}'
+app/views/books/show.json.jbuilder:8: unterminated string meets end of file
+app/views/books/show.json.jbuilder:8: syntax error, unexpected end-of-input, expecting `end'
+app/views/books/show.json.jbuilder:7: syntax error, unexpected local variable or method, expecting '}'
+app/views/books/show.json.jbuilder:8: unterminated string meets end of file
+app/views/books/show.json.jbuilder:8: syntax error, unexpected end-of-input, expecting `end'
+app/views/books/show.json.jbuilder:7: syntax error, unexpected local variable or method, expecting '}'
+app/views/books/show.json.jbuilder:8: unterminated string meets end of file
+app/views/books/show.json.jbuilder:8: syntax error, unexpected end-of-input, expecting `end'
+app/views/books/show.json.jbuilder:7: syntax error, unexpected local variable or method, expecting '}'
+app/views/books/show.json.jbuilder:8: unterminated string meets end of file
+app/views/books/show.json.jbuilder:8: syntax error, unexpected end-of-input, expecting `end'
+app/views/books/show.json.jbuilder:7: syntax error, unexpected local variable or method, expecting '}'
+app/views/books/show.json.jbuilder:8: unterminated string meets end of file
+app/views/books/show.json.jbuilder:8: syntax error, unexpected end-of-input, expecting `end'
+app/views/books/show.json.jbuilder:7: syntax error, unexpected local variable or method, expecting '}'
+app/views/books/show.json.jbuilder:8: unterminated string meets end of file
+app/views/books/show.json.jbuilder:8: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:39:28 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  [1m[36mPublisher Load (0.2ms)[0m  [1m[34mSELECT `publishers`.* FROM `publishers` WHERE `publishers`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/books/show.json.jbuilder:4
+  Rendered books/show.json.jbuilder (Duration: 33.7ms | Allocations: 10980)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 2.4ms | Allocations: 13339)
+
+
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:39:53 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT `publishers`.* FROM `publishers` WHERE `publishers`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/books/show.json.jbuilder:4
+  Rendered books/show.json.jbuilder (Duration: 6.2ms | Allocations: 4193)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.7ms | Allocations: 6528)
+
+
+  
+ActionView::Template::Error (undefined method `殺すなら' for #<Publisher:0x00007ff7454773b0>):
+    3: json.publisher do
+    4:   json.name @book.publisher.name
+    5:   json.address @book.publisher.address
+    6:   json.殺すなら @book.publisher.殺すなら
+    7: end
+  
+app/views/books/show.json.jbuilder:6
+app/views/books/show.json.jbuilder:3
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:40:09 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT `publishers`.* FROM `publishers` WHERE `publishers`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/books/show.json.jbuilder:4
+  Rendered books/show.json.jbuilder (Duration: 6.2ms | Allocations: 4073)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.3ms | Allocations: 5231)
+
+
+  
+ActionView::Template::Error (undefined method `殺すなら' for #<Publisher:0x00007ff745c4d508>):
+    3: json.publisher do
+    4:   json.name @book.publisher.name
+    5:   json.address @book.publisher.address
+    6:   json.殺すなら "ぶち殺す"
+    7: end
+  
+app/views/books/show.json.jbuilder:6
+app/views/books/show.json.jbuilder:3
+Started GET "/books/2.json" for ::1 at 2023-07-18 05:40:17 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (2.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/books_controller.rb:24:in `set_book_params'
+  Rendering books/show.json.jbuilder
+  [1m[36mPublisher Load (12.2ms)[0m  [1m[34mSELECT `publishers`.* FROM `publishers` WHERE `publishers`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/books/show.json.jbuilder:4
+  Rendered books/show.json.jbuilder (Duration: 14.8ms | Allocations: 992)
+Completed 200 OK in 24ms (Views: 6.8ms | ActiveRecord: 15.0ms | Allocations: 3357)
+
+

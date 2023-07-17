@@ -3,13 +3,9 @@ class BooksController < ApplicationController
   before_action :set_book_params, only: [:show, :destroy]
 
   def show
-    p "あああああああああああああああああ"
-    p params
-    p "あああああああああああああああああ"
-    # @book = Book.find(params[:id])
     respond_to do |format|
-      format.html
-      format.json { render json: @book }
+      format.html { redirect_to "/" }
+      format.json
     end
   end
 
@@ -24,7 +20,7 @@ class BooksController < ApplicationController
 
   private
     def set_book_params
-      puts "set_book_paramsが動いてる！！！！"
+      puts "set_book_paramsが動いている"
       @book = Book.find(params[:id])
     end
 end
