@@ -4,3 +4,4 @@ json.publisher do
   json.name @book.publisher.name
   json.address @book.publisher.address
 end
+# hogehoge
