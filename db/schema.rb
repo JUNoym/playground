@@ -10,13 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_09_133110) do
+ActiveRecord::Schema.define(version: 2023_07_17_190250) do
 
   create_table "ancestry_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
+    t.datetime "upd <<ated_at", precision: 6, null: false
+  end
+
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "penname"
+    t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "book_authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_book_authors_on_author_id"
+    t.index ["book_id"], name: "index_book_authors_on_book_id"
+  end
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.date "published_on"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "publisher_id", null: false
+    t.integer "sales_status"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,4 +66,22 @@ ActiveRecord::Schema.define(version: 2023_07_09_133110) do
     t.string "part_number"
   end
 
+  create_table "publishers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "book_authors", "authors"
+  add_foreign_key "book_authors", "books"
+  add_foreign_key "books", "publishers"
 end
